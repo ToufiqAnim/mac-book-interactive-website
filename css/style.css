@@ -1,0 +1,17 @@
+.img-fluid{
+    width: 70%;
+    height: auto;
+    margin-left: 25%;
+}
+
+input{
+    height: 40px;
+}
+.apply-btn{
+    border: 1px solid grey;
+    padding: 7px 30px;
+    background-color: rgb(221, 92, 53);
+    color: white;
+    
+    
+}

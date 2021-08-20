@@ -5,11 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MacBook</title>
+    
+    <!-- Bootstrap Stylesheet Cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <main>
-        <section>
-           <h1>Steve Jobs</h1> 
+        <section class="container">
+           <div class="row pt-5">
+               <div class="col-lg-6 ">
+                   <img class="img-fluid" src="image/mac.png" alt="">
+               </div>
+               <div class="col-lg-6">
+                   <h1>Customize your Blue 24-inch iMac with Apple M1 chip</h1>
+                   <p>Apple M1 chip with 8-core CPU with 4 performance cores and 4 efficiency cores, 7-core GPU, and 16-core Neural Engine 8GB unified memory 256GB SSD storage Two Thunderbolt / USB 4 ports Magic Mouse Magic Keyboard - US English</p>
+                   
+                   <h4>Memory</h4>
+                   <button class="border border-1 rounded me-2 p-1">8GB Unified memeory</button>
+                   <button class="border border-1 rounded p-1">16GB Unified memeory</button>
+
+                   <h4 class="mt-5">Storage</h4>
+                   <button class="border border-1 rounded me-2 p-1">256GB SSD storage</button>
+                   <button class="border border-1 rounded me-2 p-1">512GB SSD storage</button>
+                   <button class="border border-1 rounded p-1">1TB SSD storage</button>
+
+                   <h4 class="mt-5">Choose your delivery option</h4>
+                   <button class="border border-1 rounded me-2 p-1">Friday, Aug 25 FREE Prime Delivery</button>
+                   <button class="border border-1 rounded me-2 p-1">Friday, Aug 21 Delivery charge $20</button>
+                  
+                   <table class="table mt-5">
+                    <tbody>
+
+                      <tr>
+                        <td class="fw-bold">Best Price</td>
+                        <td>$<span>1299</span></td>    
+                      </tr>
+
+                      <tr>
+                        <td class="fw-bold">Extra Money Cost</td>
+                        <td>$<span>00</span></td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Extra Storage Cost</td>
+                        <td>$<span>00</span></td>
+                      </tr>
+                      <tr class="border-dark">
+                        <td class="fw-bold ">Delivery Charge</td>
+                        <td>$<span>00</span></td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Total Price</td>
+                        <td>$<span>1299</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h5 class="mt-5">Add Promo Code</h5>
+                  <input class="rounded" type="text">
+                  <button class='apply-btn rounded'>Apply</button>
+               </div>
+           </div>
+        </section>
+        <section class="container">
+            <hr>
+
+            <h1 class="text-center">Total: $<span>1299</span></h1>
         </section>
     </main>
 </body>
