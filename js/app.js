@@ -1,12 +1,15 @@
 function updateMemoryCost(priceIncrease){
-    // debugger;
+    debugger;
     let memoryCost = document.getElementById('memory-cost');
     if(priceIncrease == true){
         memoryCost.innerText = 180;
+       
     }
     else{
         memoryCost.innerText = '00';
+        
     }
+    
 }
 
 // MEMORY
@@ -74,22 +77,27 @@ document.getElementById('free-delivery').addEventListener('click',function(){
     updateTotalPrice();
 })
 
-
+// update Total Price
     function updateTotalPrice(){
-        let totalPrice = document.getElementById('total-price').innerText;
-        let memoryCost = document.getElementById('memory-cost').innerText;
-        let storageCost = document.getElementById('storage-cost').innerText;
-        let deliveryCost = document.getElementById('delivery-cost').innerText;
-    
-        let totalUpdatePrice = parseInt(totalPrice) + parseInt(memoryCost) + parseInt(storageCost) + parseInt(deliveryCost);
-        totalPrice.innerText = totalUpdatePrice;
-    
+        
+        let totalCostText = document.getElementById('total-price');
+        let totalCost = parseInt(totalCostText.innerText);
+        let memoryCostText = document.getElementById('memory-cost');
+        let memoryCost = parseInt(memoryCostText.innerText);
+        let storageCostText = document.getElementById('storage-cost');
+        let storageCost = parseInt(storageCostText.innerText);
+        let deliveryCostText = document.getElementById('delivery-cost');
+        let deliveryCost = parseInt(deliveryCostText.innerText);
+        
+        let updateTotalCost = totalCost + memoryCost + storageCost + deliveryCost;
+
+        totalCostText.innerText = updateTotalCost;
     } 
 
 //PROMO CODE
 document.getElementById('promo-input').addEventListener('click',function(){
     let promoPriceText = document.getElementById('promo-price');
-    let promoPrice = parseInt(promoPriceText.innerText);
+    let promoPrice = parseInt(promoPriceText.innerText);   
     let promoField = document.getElementById('promo-code');
     let faillError = document.getElementById('failed');
     let promoCode = promoField.value;
@@ -97,8 +105,14 @@ document.getElementById('promo-input').addEventListener('click',function(){
         let discount = promoPrice * .2;
         let macPrice = promoPrice - discount;
         promoPriceText.innerText = macPrice;
+
+        let promoBtn = document.getElementById('promo-input');
+        promoBtn.disabled = true;
+        faillError.style.display = 'none';
     }
     else{
         faillError.style.display = 'block'
     }
+    promoField.value = '';
+    
 })
