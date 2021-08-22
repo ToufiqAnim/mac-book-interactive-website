@@ -1,12 +1,12 @@
 function updateMemoryCost(priceIncrease){
-    debugger;
-    let memoryCost = document.getElementById('memory-cost');
+    // debugger;
+    let memoryCostText = document.getElementById('memory-cost');
     if(priceIncrease == true){
-        memoryCost.innerText = 180;
+        memoryCostText.innerText = 180;
        
     }
     else{
-        memoryCost.innerText = '00';
+        memoryCostText.innerText = '00';
         
     }
     
@@ -21,23 +21,21 @@ document.getElementById('memory-update-16gb').addEventListener('click', function
 
 document.getElementById('memory-update-8gb').addEventListener('click', function(){
     updateMemoryCost(false);
-    updateTotalPrice();
-
-    
+    updateTotalPrice();   
 })
 
 // STORAGE
 function updateStorageCost(storageIncrease){
-    let storageCost = document.getElementById('storage-cost');
+    let storageCostText = document.getElementById('storage-cost');
 
     if(storageIncrease == '512gb'){
-        storageCost.innerText = 100;
+        storageCostText.innerText = 100;
     }
     else if(storageIncrease == '1tb'){
-        storageCost.innerText = 180;
+        storageCostText.innerText = 180;
     }
     else{
-        storageCost.innerText = '00';
+        storageCostText.innerText = '00';
     }
 }
 
@@ -57,12 +55,12 @@ document.getElementById('ssd-1tb').addEventListener('click',function(){
 
 // DELIVERY
 function updateDeliveryCost(deliveryPaid){
-    let deliveryCost = document.getElementById('delivery-cost');
+    let deliveryCostText = document.getElementById('delivery-cost');
     if (deliveryPaid == true){
-        deliveryCost.innerText = 20;
+        deliveryCostText.innerText = 20;
     }
     else{
-        deliveryCost.innerText = '00';
+        deliveryCostText.innerText = '00';
     }
 }
 
@@ -80,39 +78,38 @@ document.getElementById('free-delivery').addEventListener('click',function(){
 // update Total Price
     function updateTotalPrice(){
         
-        let totalCostText = document.getElementById('total-price');
-        let totalCost = parseInt(totalCostText.innerText);
+        let totalCost = document.getElementById('total-price');
+
+        let bestPriceText = document.getElementById('best-price');
+        let bestPrice = parseFloat(bestPriceText.innerText);
+
         let memoryCostText = document.getElementById('memory-cost');
         let memoryCost = parseInt(memoryCostText.innerText);
+
         let storageCostText = document.getElementById('storage-cost');
         let storageCost = parseInt(storageCostText.innerText);
+
         let deliveryCostText = document.getElementById('delivery-cost');
         let deliveryCost = parseInt(deliveryCostText.innerText);
-        
-        let updateTotalCost = totalCost + memoryCost + storageCost + deliveryCost;
 
-        totalCostText.innerText = updateTotalCost;
+        let updateTotalCost = bestPrice + memoryCost + storageCost + deliveryCost;
+
+        totalCost.innerText = updateTotalCost;
+
+        let promoPrice = document.getElementById('promo-price');
+        promoPrice.innerText = updateTotalCost;
     } 
 
-//PROMO CODE
-document.getElementById('promo-input').addEventListener('click',function(){
-    let promoPriceText = document.getElementById('promo-price');
-    let promoPrice = parseInt(promoPriceText.innerText);   
-    let promoField = document.getElementById('promo-code');
-    let faillError = document.getElementById('failed');
-    let promoCode = promoField.value;
-    if (promoCode == 'stevekaku'){
-        let discount = promoPrice * .2;
-        let macPrice = promoPrice - discount;
-        promoPriceText.innerText = macPrice;
-
-        let promoBtn = document.getElementById('promo-input');
-        promoBtn.disabled = true;
-        faillError.style.display = 'none';
+// PROMO CODE
+document.getElementById('promo-btn').addEventListener('click', function(){
+    const totalCost = document.getElementById('total-price');
+    let totalPrice  =  parseInt(totalCost.innerText);
+    let promoInput = document.getElementById('promo-input');
+    if(promoCodeValue = 'stevekaku'){
+        let discountPrice = totalPrice * .2;
+        let newTotalPrice = totalPrice - discountPrice;
+        let promoPrice = document.getElementById('promo-price');
+        promoPrice.innerText = newTotalPrice;
+        promoInput.value = "";
     }
-    else{
-        faillError.style.display = 'block'
-    }
-    promoField.value = '';
-    
 })
